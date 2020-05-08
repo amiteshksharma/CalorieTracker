@@ -108,9 +108,17 @@ function credentialForm(e, user, password) {
             password.value = "";
         } else {
             console.log('login button works');
+            writeUserData('Amitesh', 'Hello');
         }
     }
 }
+
+function writeUserData(name, email) {
+    firebase.database().ref('test').set({
+      username: name,
+      email: email,
+    });
+  }
 
 
 
