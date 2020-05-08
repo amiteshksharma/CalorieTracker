@@ -1,0 +1,19 @@
+{
+  "name": "calorietrackerproject",
+  "version": "1.0.0",
+  "description": "Tracks the number of calories for an individual on a per day basis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amiteshksharma/CalorieTracker.git"
+  },
+  "author": "Amitesh Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amiteshksharma/CalorieTracker/issues"
+  },
+  "homepage": "https://github.com/amiteshksharma/CalorieTracker#readme"
+}
