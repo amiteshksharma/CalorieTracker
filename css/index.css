@@ -1,0 +1,234 @@
+/**
+    The margin for the top of the page
+*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/**
+    Setting up the skeleton of home page
+*/
+html {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding-top: 0px;
+}
+
+/**
+    The header, the top part of the page which include the name of 
+    the app
+*/
+.header {
+    background-color: rgb(31, 127, 165);
+    height: 100%;
+    padding-bottom: calc(4vmin);
+}
+
+.header h1 { 
+    text-align: center;
+    font-size: calc(5vmin);
+    display: flex;
+    justify-content: center;
+}
+
+#login, #signup {
+    float: right;
+    margin-top: 0px;
+    padding: calc(.9vmin);
+    width: calc(5%);
+    background-color: rgb(31, 127, 165);
+    color: black;
+    font-size: calc(1.8vmin);
+    border: none;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;   
+}
+
+#login:hover, #signup:hover {
+    background-color: lightblue;
+}
+
+/**
+    The login and password div
+*/
+#login-password form, #signup-info form {
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+#login-password form input, #signup-info form input {
+    padding: calc(1vmin);  
+    border: none; 
+}
+
+/**
+    The buttons to navigate to home and saved list
+*/
+.topnav {
+    width: 100%;
+    margin-top: calc(4.5vmin);
+
+}
+
+/**
+    Styling of the link buttons
+*/
+a {
+    margin-right: calc(50vmin);
+    background-color: rgb(16, 184, 214);
+    color: black;
+    text-decoration: none;
+    padding: calc(1.5vmin);
+    border-radius: 20px;
+}
+
+a:hover {
+    background-color: lightblue;
+}
+
+.active {
+    margin-left: calc(70vmin);
+}
+
+/**
+    The div element for the text fields
+*/
+.input-items {
+    width: 100%;
+    font-size: calc(4vmin);
+    background-color: white;
+    margin-top: calc(7vmin);
+    height: 100%;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+/**
+    Text fields for food name and calories
+*/
+#food-name, #calories {
+    width: calc(22%);
+    font-size: calc(1.8vmin);
+    text-indent: calc(3vmin);
+    cursor: text;
+    padding: calc(1.3vmin);
+    border: none;
+    float: left;
+    background: rgb(219, 216, 216);
+    color: black;
+  }
+
+#calories, #add-button {
+      margin-left: calc(1vmin);
+}
+
+/**
+    Add button to the list that is below the headers
+*/
+#add-button {
+    float: left;
+    width: calc(5%);
+    padding: calc(1.3vmin);
+    background: rgb(94, 92, 92);
+    color: white;
+    font-size: calc(1.8vmin);
+    border: none;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+#add-button:hover {
+    background: rgb(36, 103, 180);
+  }
+
+h2 {
+    font-size: calc(2vmin);
+    justify-content: right;
+    display: flex;
+    width: 100%;
+    position: relative;
+    left: calc(165vmin);
+    margin-top: calc(2vmin);
+}
+
+/**
+  The table header div
+*/
+.table-header {
+    width: 100%;
+    display: flex;
+    background-color: rgb(145, 191, 235);
+    margin-top: calc(0vmin);
+    padding: calc(0.8vmin);
+}
+
+.table-header h1 {
+    width: 50%;
+    text-align: center;
+}
+
+/**
+    The div for the list of items
+*/
+#list-display {
+    display: flex;
+    justify-content: center;
+    padding-bottom: calc(1vmin);
+    width: 100%;
+    margin-top: calc(1vmin);
+}
+
+div#list-display ul div {
+    width: 100%;
+    display: flex;
+    background-color: rgb(77, 147, 226);
+    border-radius: calc(20px);
+    margin-bottom: calc(0.8vmin);
+    color: black;
+}
+
+div#list-display ul div:hover {
+    background-color: lightblue;
+}
+
+#list-items {
+    width: calc(100%);
+    font-size: calc(2.7vmin);
+    margin-top: calc(1.5vmin);
+}
+
+li {
+    padding: calc(1.5vmin);
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+/**
+    form for the save button to save list to database
+*/
+.button-form  {
+    width: 100%;
+    font-size: calc(4vmin);
+    height: 100%;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+#save-button {
+    float: right;
+    width: calc(5%);
+    padding: calc(1.3vmin);
+    background: rgb(14, 186, 230);
+    color: black;
+    font-size: calc(2vmin);
+    border: none;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+}
