@@ -84,13 +84,14 @@ a {
     text-decoration: none;
     padding: calc(1.5vmin);
     border-radius: 20px;
+    border: none;
 }
 
 a:hover {
     background-color: lightblue;
 }
 
-.active {
+#active {
     margin-left: calc(70vmin);
 }
 

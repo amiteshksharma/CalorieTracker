@@ -11,12 +11,11 @@ let calories = document.getElementById('calories');
 let nodeList = document.getElementById('list-display');
 let nodeItemOrder = nodeList.getElementsByTagName("ul");
 
-//The save button at the bottom of the page
-let saveButton = document.getElementById('save-button');
-
 //Keep track of the number of calories added
 let totalCalorie = 0;
 let totalCalorieCount = document.getElementById('total-count');
+
+let array = [];
 
 //Add item to the list on Home page
 click.addEventListener("click", () => {
@@ -36,6 +35,10 @@ click.addEventListener("click", () => {
         div.appendChild(entry);
         div.appendChild(entryTwo);
         listItems.appendChild(div);
+        array.push({
+            itemName: itemName.value, 
+            Calorie: calories.value
+        });
         entryTwo.setAttribute("value", calories.value);
 
         div.addEventListener('click', () => {
@@ -51,11 +54,6 @@ click.addEventListener("click", () => {
 
     itemName.value = "";
     calories.value = "";
-});
-
-//Save all data to Firebase Storage, and viewable from the Saved Page
-saveButton.addEventListener("click", () => {
-    console.log(totalCalorie);
 });
 
 //Login aspect of the home page
@@ -118,7 +116,6 @@ firebase.auth().onAuthStateChanged(function(user) {
       signupCreds.style.display = 'none';
     } else {
       // No user is signed in.
-      console.log('User is not in!');
     }
   });
 
@@ -171,12 +168,42 @@ function logout() {
       });
 }
 
-function writeUserData(name, email) {
-    firebase.database().ref('test').set({
-      username: name,
-      email: email,
+function writeUserData(user, calorie, array) {
+    let date = new Date();
+    let num = "" + (date.getMonth() + 1) + date.getDate();
+    
+    firebase.database().ref('UserId/' + user + `/${num}`).set({
+      Calories: calorie,
+      Items: array
     });
-  }
+}
+
+//The save button at the bottom of the page
+let saveButton = document.getElementById('save-button');
+saveButton.addEventListener('click', () => {
+    var user = firebase.auth().currentUser;
+
+    if (user) {
+        writeUserData(user.uid, totalCalorie, array);
+        $(listItems).empty();
+    } else {}
+});
+
+changeTabs('saved-list', 'none');
+
+changeTabs('active', 'block');
+
+function changeTabs(listName, display) {
+    document.getElementById(`${listName}`).addEventListener('click', () => {
+        var user = firebase.auth().currentUser;
+    
+        if (user) {
+            document.getElementById('home').style.display = `${display}`;
+        } else {
+            alert('Sign in to check your personal list!');
+        }
+    });   
+}
 
 
 
