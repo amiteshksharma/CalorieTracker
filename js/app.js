@@ -168,10 +168,9 @@ function logout() {
       });
 }
 
+let date = new Date();
+let num = "" + (date.getMonth() + 1) + date.getDate();
 function writeUserData(user, calorie, array) {
-    let date = new Date();
-    let num = "" + (date.getMonth() + 1) + date.getDate();
-    
     firebase.database().ref('UserId/' + user + `/${num}`).set({
       Calories: calorie,
       Items: array
@@ -199,6 +198,9 @@ function changeTabs(listName, display) {
     
         if (user) {
             document.getElementById('home').style.display = `${display}`;
+            if(listName == 'saved-list') {
+                
+            }
         } else {
             alert('Sign in to check your personal list!');
         }
