@@ -3,6 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-messaging.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+     <script>
+     var firebaseConfig = {
+         apiKey: "AIzaSyDXnxOVFKo8tIHGgWxovoPD8VxjyZiUPTg",
+         authDomain: "calorietracker-587b4.firebaseapp.com",
+         databaseURL: "https://calorietracker-587b4.firebaseio.com",
+         projectId: "calorietracker-587b4",
+         storageBucket: "calorietracker-587b4.appspot.com",
+         messagingSenderId: "628564908111",
+         appId: "1:628564908111:web:22c1878312bd428d1d323a",
+         measurementId: "G-6HEM43VFRN"
+     };
+     // Initialize Firebase
+     firebase.initializeApp(firebaseConfig);
+     </script>
     <link rel="stylesheet" href="css/index.css">
     <title>CalorierTracker</title>
 </head>
@@ -10,7 +31,7 @@
 <body>
     <div class="header">
         <h1>Calorie Tracker</h1>
-        <div id="signup-info" style="display: none;">
+        <div id="signup-div" style="display: none;">
             <form id='signup-form'>
                 <input placeholder="Enter email" type="text" id="signup-email">
                 <input placeholder="enter Password" type="password" id="signup-password">   
@@ -20,14 +41,18 @@
             <button id="signup" type="button">Signup</button>
         </form>
         
-        <div id="login-password" style="display: none;">
-            <form id='login-password-form'>
+        <div id="login-div" style="display: none;">
+            <form id='login-form'>
                 <input placeholder="Email" type="text" id="email">
                 <input placeholder="Password" type="password" id="password">   
             </form>
         </div>
         <form>
             <button id="login" type="button">Login</button>
+        </form>
+
+        <form>
+            <button id="logout" type="button" style="display: none;">Logout</button>
         </form>
     </div>
 
@@ -64,33 +89,5 @@
     
     <script src="js/app.js">
     </script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-
-    <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyDXnxOVFKo8tIHGgWxovoPD8VxjyZiUPTg",
-        authDomain: "calorietracker-587b4.firebaseapp.com",
-        databaseURL: "https://calorietracker-587b4.firebaseio.com",
-        projectId: "calorietracker-587b4",
-        storageBucket: "calorietracker-587b4.appspot.com",
-        messagingSenderId: "628564908111",
-        appId: "1:628564908111:web:22c1878312bd428d1d323a",
-        measurementId: "G-6HEM43VFRN"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-</script>
 </body>
 </html>

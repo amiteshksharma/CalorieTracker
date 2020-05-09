@@ -34,7 +34,7 @@ html {
     justify-content: center;
 }
 
-#login, #signup {
+#login, #signup, #logout {
     float: right;
     margin-top: 0px;
     padding: calc(.9vmin);
@@ -54,13 +54,13 @@ html {
 /**
     The login and password div
 */
-#login-password form, #signup-info form {
+#login-div form, #signup-div form {
     display: flex;
     flex-direction: column;
     float: right;
 }
 
-#login-password form input, #signup-info form input {
+#login-div form input, #signup-div form input {
     padding: calc(1vmin);  
     border: none; 
 }

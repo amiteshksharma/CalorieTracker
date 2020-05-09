@@ -60,12 +60,12 @@ saveButton.addEventListener("click", () => {
 
 //Login aspect of the home page
 let loginButton = document.getElementById('login');
-let credential = document.getElementById('login-password');
-let loginForm = document.getElementById('login-password-form');
+let credential = document.getElementById('login-div');
+let loginForm = document.getElementById('login-form');
 
 //Registration of user
 let signupButton = document.getElementById('signup');
-let signupCreds = document.getElementById('signup-info');
+let signupCreds = document.getElementById('signup-div');
 let signupForm = document.getElementById('signup-form');
 
 //Login
@@ -76,6 +76,9 @@ let password = document.getElementById('password');
 let signEmail = document.getElementById('signup-email');
 let signPassword = document.getElementById('signup-password');
 
+//Logout
+let logoutButton = document.getElementById('logout');
+
 signupButton.addEventListener('click', () => {
     changeDisplay(signupCreds)
 });
@@ -84,12 +87,16 @@ loginButton.addEventListener('click', () => {
     changeDisplay(credential);
 });
 
+logoutButton.addEventListener('click', () => {
+    logout();
+});
+
 loginForm.addEventListener('keydown', (e) => {
-    credentialForm(e, email, password);
+    login(e);
 });
 
 signupForm.addEventListener('keydown', (e) => {
-    credentialForm(e, signEmail, signPassword);
+    register(e);   
 });
 
 function changeDisplay(element) {
@@ -100,17 +107,68 @@ function changeDisplay(element) {
     }
 }
 
-function credentialForm(e, user, password) {
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      console.log('User is in!');
+      loginButton.style.display = 'none';
+      signupButton.style.display = 'none';
+      logoutButton.style.display = 'block';
+      credential.style.display = 'none';
+      signupCreds.style.display = 'none';
+    } else {
+      // No user is signed in.
+      console.log('User is not in!');
+    }
+  });
+
+function login(e) {
     if(e.keyCode === 13) {
-        if(!user.value || !password.value) {
+        if(!email.value || !password.value) {
             alert('Enter credentials!');
-            user.value = "";
+            email.value = "";
             password.value = "";
         } else {
-            console.log('login button works');
-            writeUserData('Amitesh', 'Hello');
+            firebase.auth().signInWithEmailAndPassword(email.value, password.value).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // ...
+                console.log(errorMessage);
+              });
         }
     }
+}
+
+function register(e) {
+    let email = signEmail;
+    let password = signPassword;
+    
+    if(e.keyCode === 13) {
+        if(!email.value || !password.value) {
+            alert('Enter credentials!');
+            email.value = "";
+            password.value = "";
+        } else {
+            firebase.auth().createUserWithEmailAndPassword(email.value, password.value).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // ...
+                console.log(errorMessage);
+              });
+        }
+    }
+}
+
+function logout() {
+    firebase.auth().signOut().then(function() {
+        loginButton.style.display = 'block';
+        signupButton.style.display = 'block';
+        logoutButton.style.display = 'none';
+      }).catch(function(error) {
+        // An error happened.
+      });
 }
 
 function writeUserData(name, email) {
