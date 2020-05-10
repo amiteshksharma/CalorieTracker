@@ -173,9 +173,11 @@ function logout() {
 }
 
 let date = new Date();
-let num = "" + (date.getMonth() + 1) + date.getDate();
+let num = date.toISOString().replace(/T.*/,'').split('-').reverse().join('-');
+let substringDate = num.substring(0, 2) + num.substring(3, 5);
+console.log(substringDate);
 function writeUserData(user, calorie, array) {
-    firebase.database().ref('UserId/' + user + `/${num}`).set({
+    firebase.database().ref('UserId/' + user + `/${substringDate}`).set({
         Calories: calorie,
         Items: array
     });
@@ -277,19 +279,9 @@ function loadSavedValues(user, listSaved, keys) {
 }
 
 function formatToDate(date) {
-    if (date.length == 2) {
-        let day = date.substring(0, 1);
-        let month = date.substring(1);
-        return day + '/' + month;
-    } else if (date.length == 3 && parseInt(date.substring(0, 2)) <= 9) {
-        let day = date.substring(0, 1);
-        let month = date.substring(1);
-        return day + '/' + month;
-    } else {
-        let day = date.substring(0, 2);
-        let month = date.substring(2);
-        return day + '/' + month;
-    }
+    let day = date.substring(0, 2);
+    let month = date.substring(2, 4);
+    return month + "/" + day;
 }
 
 
