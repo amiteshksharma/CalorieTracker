@@ -16,6 +16,7 @@ let totalCalorie = 0;
 let totalCalorieCount = document.getElementById('total-count');
 
 let array = [];
+let count = 0;
 
 //Add item to the list on Home page
 click.addEventListener("click", () => {
@@ -36,15 +37,18 @@ click.addEventListener("click", () => {
         div.appendChild(entryTwo);
         listItems.appendChild(div);
         array.push({
+            Id: count++,
             itemName: itemName.value,
             Calorie: calories.value
         });
         entryTwo.setAttribute("value", calories.value);
 
         div.addEventListener('click', () => {
+            let index = $(div).index();
             div.parentNode.removeChild(div);
             totalCalorie -= parseInt(div.childNodes[1].getAttribute("value"));
             totalCalorieCount.textContent = "TOTAL: " + totalCalorie;
+            array.splice(index, 1);
 
             if (totalCalorie === 0) {
                 totalCalorieCount.textContent = "TOTAL:";
@@ -186,6 +190,8 @@ saveButton.addEventListener('click', () => {
         writeUserData(user.uid, totalCalorie, array);
         $(listItems).empty();
         totalCalorieCount.textContent = "TOTAL: ";
+        array = [];
+        count = 0;
     } else { }
 });
 
@@ -193,10 +199,10 @@ changeTabs('saved-list', 'none');
 
 changeTabs('active', 'block');
 
+let listSaved = document.getElementById('saved-items');
 function changeTabs(listName, display) {
     document.getElementById(`${listName}`).addEventListener('click', () => {
         var user = firebase.auth().currentUser;
-        let listSaved = document.getElementById('saved-items');
         keys = document.getElementById('key-date');
 
         if (user) {
@@ -216,6 +222,7 @@ function changeTabs(listName, display) {
 }
 
 function loadSavedValues(user, listSaved, keys) {
+    let index, calorie, arrayList;
     let list = firebase.database().ref('UserId/' + user.uid).once('value').then(function (snapshot) {
         var keyDate = Object.keys(snapshot.val())
         keyDate.forEach(item => {
@@ -246,6 +253,22 @@ function loadSavedValues(user, listSaved, keys) {
                     div.appendChild(entry);
                     div.appendChild(entryTwo);
                     listSaved.appendChild(div);
+
+                    div.addEventListener('click', () => {
+                        index = $(div).index();
+                        console.log(index);
+                        calorie = snapshot.child(`${item}/Calories`).val();
+                        console.log(arr.length);
+                        div.parentNode.removeChild(div);
+                        if(arr.length > 1) {
+                            calorie -= arr[index].Calorie;
+                            arr.splice(index, 1);
+                            firebase.database().ref('UserId/' + user.uid + `/${item}/Items`).set(arr);
+                            firebase.database().ref('UserId/' + user.uid + `/${item}/Calories`).set(calorie);
+                        } else {
+                            firebase.database().ref('UserId/' + user.uid).remove();        
+                        }
+                    });
                 });
                 listSaved.style.display = 'block';
             });
@@ -254,18 +277,18 @@ function loadSavedValues(user, listSaved, keys) {
 }
 
 function formatToDate(date) {
-    if(date.length == 2) {
+    if (date.length == 2) {
         let day = date.substring(0, 1);
         let month = date.substring(1);
         return day + '/' + month;
-    } else if(date.length == 3 && parseInt(date.substring(0, 2)) <= 9) {
+    } else if (date.length == 3 && parseInt(date.substring(0, 2)) <= 9) {
         let day = date.substring(0, 1);
         let month = date.substring(1);
-        return day + '/' + month;    
+        return day + '/' + month;
     } else {
         let day = date.substring(0, 2);
         let month = date.substring(2);
-        return day + '/' + month; 
+        return day + '/' + month;
     }
 }
 
