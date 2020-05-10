@@ -176,7 +176,7 @@ h2 {
 /**
     The div for the list of items
 */
-#list-display {
+#list-display, #saved-item-list {
     display: flex;
     justify-content: center;
     padding-bottom: calc(1vmin);
@@ -184,7 +184,7 @@ h2 {
     margin-top: calc(1vmin);
 }
 
-div#list-display ul div {
+div#list-display ul div, div#saved-item-list ul div {
     width: 100%;
     display: flex;
     background-color: rgb(77, 147, 226);
@@ -193,14 +193,18 @@ div#list-display ul div {
     color: black;
 }
 
-div#list-display ul div:hover {
+div#list-display ul div:hover, div#saved-item-list ul div:hover {
     background-color: lightblue;
 }
 
-#list-items {
+#list-items, #saved-items, #key-date {
     width: calc(100%);
     font-size: calc(2.7vmin);
     margin-top: calc(1.5vmin);
+}
+
+#key-date {
+    text-align: center;
 }
 
 li {
