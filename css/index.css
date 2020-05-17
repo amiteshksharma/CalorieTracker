@@ -128,6 +128,20 @@ a:hover {
       margin-left: calc(1vmin);
 }
 
+.analysis-div {
+    width: 100%;
+    font-size: calc(2vmin);
+    height: 100%;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#analysis {
+   margin-right: 0px;  
+}
+
 /**
     Add button to the list that is below the headers
 */
@@ -217,7 +231,7 @@ li {
 /**
     form for the save button to save list to database
 */
-.button-form  {
+.save-form  {
     width: 100%;
     font-size: calc(4vmin);
     height: 100%;

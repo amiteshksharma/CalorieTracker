@@ -202,6 +202,7 @@ changeTabs('saved-list', 'none');
 changeTabs('active', 'block');
 
 let listSaved = document.getElementById('saved-items');
+let analysis = document.getElementById('analysis');
 function changeTabs(listName, display) {
     document.getElementById(`${listName}`).addEventListener('click', () => {
         var user = firebase.auth().currentUser;
@@ -213,8 +214,12 @@ function changeTabs(listName, display) {
                 listSaved.style.display = 'none';
                 $(listSaved).empty();
                 $(keys).empty();
+                analysis.style.display = 'none';
             }
             if (listName == 'saved-list') {
+                $(listSaved).empty();
+                $(keys).empty();
+                analysis.style.display = 'block';
                 loadSavedValues(user, listSaved, keys);
             }
         } else {
@@ -278,6 +283,10 @@ function loadSavedValues(user, listSaved, keys) {
     });
 }
 
+/**
+ * Format the Date for the key in the display
+ * @param {} date 
+ */
 function formatToDate(date) {
     let day = date.substring(0, 2);
     let month = date.substring(2, 4);
