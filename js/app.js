@@ -175,7 +175,7 @@ function logout() {
 let date = new Date();
 let num = date.toISOString().replace(/T.*/,'').split('-').reverse().join('-');
 let substringDate = num.substring(0, 2) + num.substring(3, 5);
-console.log(substringDate);
+
 function writeUserData(user, calorie, array) {
     firebase.database().ref('UserId/' + user + `/${substringDate}`).set({
         Calories: calorie,
@@ -201,12 +201,12 @@ changeTabs('saved-list', 'none');
 
 changeTabs('active', 'block');
 
-let listSaved = document.getElementById('saved-items');
+let listSaved = document.getElementById('saved-ul');
 let analysis = document.getElementById('analysis');
 function changeTabs(listName, display) {
     document.getElementById(`${listName}`).addEventListener('click', () => {
         var user = firebase.auth().currentUser;
-        keys = document.getElementById('key-date');
+        keys = document.getElementById('key-ul');
 
         if (user) {
             document.getElementById('home').style.display = `${display}`;
