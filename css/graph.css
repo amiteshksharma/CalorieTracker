@@ -21,6 +21,7 @@ body {
 
 #chartContainer {
     padding-left: 8px;
+    margin-top: calc(2vmin);
 }
 
 .table-div {
