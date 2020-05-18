@@ -219,6 +219,7 @@ function changeTabs(listName, display) {
             if (listName == 'saved-list') {
                 $(listSaved).empty();
                 $(keys).empty();
+                listSaved.style.display = 'none';
                 analysis.style.display = 'block';
                 loadSavedValues(user, listSaved, keys);
             }
