@@ -36,26 +36,32 @@ window.onload = function () {
     let chart = new CanvasJS.Chart("chartContainer", graphObject);
     chart.render();
 
-    let user = firebase.auth().currentUser;
-    let list = firebase.database().ref('UserId/' + user.uid).once('value').then(function (snapshot) {
-        var keyDate = Object.keys(snapshot.val());
-        console.log(keyDate)
-        keyDate.forEach(item => {
-            const calorie = snapshot.child(`${item}/Calories`).val();
-            const value = {
-                x: formatToDate(item),
-                y: calorie
-            }
-            graphObject.data[0].dataPoints.push(value);
-            chart.render();
-
-            let row = table.insertRow(1);
-            let cellDate = row.insertCell(0);
-            let cellCal = row.insertCell(1);
-
-            cellDate.innerHTML = formatToShorterDate(item);
-            cellCal.innerHTML = calorie;
-        });
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            let list = firebase.database().ref('UserId/' + user.uid).once('value').then(function (snapshot) {
+                var keyDate = Object.keys(snapshot.val());
+                console.log(keyDate)
+                keyDate.forEach(item => {
+                    const calorie = snapshot.child(`${item}/Calories`).val();
+                    const value = {
+                        x: formatToDate(item),
+                        y: calorie
+                    }
+                    graphObject.data[0].dataPoints.push(value);
+                    chart.render();
+        
+                    let row = table.insertRow(1);
+                    let cellDate = row.insertCell(0);
+                    let cellCal = row.insertCell(1);
+        
+                    cellDate.innerHTML = formatToShorterDate(item);
+                    cellCal.innerHTML = calorie;
+                });
+            });
+        } else {
+            // No user is signed in.
+        }
     });
 }
 
