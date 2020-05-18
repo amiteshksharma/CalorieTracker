@@ -1,5 +1,6 @@
 window.onload = function () {
     const date = new Date();
+    const tableData = document.getElementById('table');
 
     const graphObject = {
         animationEnabled: true,
@@ -32,10 +33,10 @@ window.onload = function () {
         }]
     };
 
-    var chart = new CanvasJS.Chart("chartContainer", graphObject);
+    let chart = new CanvasJS.Chart("chartContainer", graphObject);
     chart.render();
 
-    var user = firebase.auth().currentUser;
+    let user = firebase.auth().currentUser;
     let list = firebase.database().ref('UserId/' + user.uid).once('value').then(function (snapshot) {
         var keyDate = Object.keys(snapshot.val());
         console.log(keyDate)
@@ -47,6 +48,13 @@ window.onload = function () {
             }
             graphObject.data[0].dataPoints.push(value);
             chart.render();
+
+            let row = table.insertRow(1);
+            let cellDate = row.insertCell(0);
+            let cellCal = row.insertCell(1);
+
+            cellDate.innerHTML = formatToShorterDate(item);
+            cellCal.innerHTML = calorie;
         });
     });
 }
@@ -55,4 +63,10 @@ function formatToDate(date) {
     let day = date.substring(0, 2);
     let month = date.substring(2, 4);
     return new Date(2020, month-1, day);
+}
+
+function formatToShorterDate(date) {
+    let day = date.substring(0, 2);
+    let month = date.substring(2, 4);
+    return month + "/" + day;
 }
