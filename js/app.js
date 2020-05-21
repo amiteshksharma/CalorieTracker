@@ -134,8 +134,10 @@ function login(e) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                // ...
                 console.log(errorMessage);
+                alert(errorMessage);
+                email.value = "";
+                password.value = "";
             });
         }
     }
@@ -157,6 +159,9 @@ function register(e) {
                 var errorMessage = error.message;
                 // ...
                 console.log(errorMessage);
+                alert(errorMessage);
+                email.value = "";
+                password.value = "";
             });
         }
     }
@@ -293,6 +298,3 @@ function formatToDate(date) {
     let month = date.substring(2, 4);
     return month + "/" + day;
 }
-
-
-

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@700&display=swap');
+
 /**
     The margin for the top of the page
 */
@@ -15,6 +19,7 @@ html {
     width: 100%;
     margin: 0px;
     padding-top: 0px;
+    overflow: hidden;
 }
 
 /**
@@ -22,6 +27,7 @@ html {
     the app
 */
 .header {
+    font-family: 'Bebas Neue', cursive;
     background-color: rgb(31, 127, 165);
     height: 100%;
     padding-bottom: calc(4vmin);
@@ -35,9 +41,10 @@ html {
 }
 
 #login, #signup, #logout {
+    font-family: 'Lato', sans-serif;
     float: right;
     margin-top: 0px;
-    padding: calc(.9vmin);
+    padding: calc(.85vmin);
     width: calc(5%);
     background-color: rgb(31, 127, 165);
     color: black;
@@ -47,7 +54,7 @@ html {
     cursor: pointer;   
 }
 
-#login:hover, #signup:hover {
+#login:hover, #signup:hover, #logout:hover {
     background-color: lightblue;
 }
 
@@ -65,19 +72,29 @@ html {
     border: none; 
 }
 
+img {
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.credit {
+    font-size: 10px;
+}
+
 /**
     The buttons to navigate to home and saved list
 */
 .topnav {
+    font-family: 'Lato', sans-serif;
     width: 100%;
     margin-top: calc(4.5vmin);
-
 }
 
 /**
     Styling of the link buttons
 */
-a {
+#active, #saved-list, #analysis {
     margin-right: calc(50vmin);
     background-color: rgb(16, 184, 214);
     color: black;
@@ -87,7 +104,7 @@ a {
     border: none;
 }
 
-a:hover {
+#active:hover, #saved-list:hover, #analysis:hover {
     background-color: lightblue;
 }
 
@@ -113,6 +130,7 @@ a:hover {
     Text fields for food name and calories
 */
 #food-name, #calories {
+    font-family: 'Cuprum', sans-serif;
     width: calc(22%);
     font-size: calc(1.8vmin);
     text-indent: calc(3vmin);
@@ -129,7 +147,6 @@ a:hover {
 }
 
 .analysis-div {
-    width: 100%;
     font-size: calc(2vmin);
     height: 100%;
     margin-left: 0px;
@@ -146,6 +163,7 @@ a:hover {
     Add button to the list that is below the headers
 */
 #add-button {
+    font-family: 'Lato', sans-serif;
     float: left;
     width: calc(5%);
     padding: calc(1.3vmin);
@@ -162,12 +180,12 @@ a:hover {
   }
 
 h2 {
+    font-family: 'Lato', sans-serif;
     font-size: calc(2vmin);
     justify-content: right;
     display: flex;
-    width: 100%;
     position: relative;
-    left: calc(165vmin);
+    padding-left: calc(166vmin);
     margin-top: calc(2vmin);
 }
 
@@ -175,6 +193,7 @@ h2 {
   The table header div
 */
 .table-header {
+    font-family: 'Cuprum', sans-serif;
     width: 100%;
     display: flex;
     background-color: rgb(145, 191, 235);
