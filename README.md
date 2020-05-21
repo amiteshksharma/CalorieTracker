@@ -7,6 +7,8 @@ User manually inputs the food and calories associated with it, and are able to t
 3. Access to the stored calories and see the exact food and calorie eaten
 4. Deletion of saved data, which will update the database in realtime
 5. A graph that showcases the calories eaten in each day
+6. A table below the graph showing the total calories eaten on a specific date
+
 
 Developed by Amitesh Sharma
 Hosted at: https://calorietracking.netlify.app
