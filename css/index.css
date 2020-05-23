@@ -193,12 +193,13 @@ h2 {
   The table header div
 */
 .table-header {
-    font-family: 'Cuprum', sans-serif;
-    width: 100%;
-    display: flex;
-    background-color: rgb(145, 191, 235);
-    margin-top: calc(0vmin);
-    padding: calc(0.8vmin);
+  margin: auto;
+  width: 75%;
+  background-color: rgb(29, 114, 211);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: calc(20px);
 }
 
 .table-header h1 {
@@ -210,10 +211,9 @@ h2 {
     The div for the list of items
 */
 #list-display, #saved-item-list {
-    display: flex;
-    justify-content: center;
+    margin: auto;
     padding-bottom: calc(1vmin);
-    width: 100%;
+    width: 76%;
     margin-top: calc(1vmin);
 }
 

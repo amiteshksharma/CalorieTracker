@@ -298,3 +298,8 @@ function formatToDate(date) {
     let month = date.substring(2, 4);
     return month + "/" + day;
 }
+
+let profile = document.getElementById('profile');
+profile.addEventListener('click', () => {
+    location.replace('../pages/Profile.html');
+});
