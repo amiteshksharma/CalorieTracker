@@ -18,6 +18,8 @@ let totalCalorieCount = document.getElementById('total-count');
 let array = [];
 let count = 0;
 
+let profile = document.getElementById('profile');
+
 //Add item to the list on Home page
 click.addEventListener("click", () => {
     let entry = document.createElement("li");
@@ -118,6 +120,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         logoutButton.style.display = 'block';
         credential.style.display = 'none';
         signupCreds.style.display = 'none';
+        profile.style.display = 'block';
     } else {
         // No user is signed in.
     }
@@ -299,7 +302,6 @@ function formatToDate(date) {
     return month + "/" + day;
 }
 
-let profile = document.getElementById('profile');
 profile.addEventListener('click', () => {
     location.replace('../pages/Profile.html');
 });

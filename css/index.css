@@ -91,6 +91,10 @@ img {
     margin-top: calc(4.5vmin);
 }
 
+#profile {
+    cursor: pointer;
+}
+
 /**
     Styling of the link buttons
 */
@@ -102,6 +106,7 @@ img {
     padding: calc(1.5vmin);
     border-radius: 20px;
     border: none;
+    cursor: pointer;
 }
 
 #active:hover, #saved-list:hover, #analysis:hover {
@@ -176,7 +181,7 @@ img {
   }
   
 #add-button:hover {
-    background: rgb(36, 103, 180);
+    background: rgb(66, 134, 212);
   }
 
 h2 {
