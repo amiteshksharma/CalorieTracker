@@ -1,40 +1,45 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Profile Page</title>
-    <meta name="description" content="">
-    <html name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-    <script>
-        var firebaseConfig = {
-            apiKey: "AIzaSyDXnxOVFKo8tIHGgWxovoPD8VxjyZiUPTg",
-            authDomain: "calorietracker-587b4.firebaseapp.com",
-            databaseURL: "https://calorietracker-587b4.firebaseio.com",
-            projectId: "calorietracker-587b4",
-            storageBucket: "calorietracker-587b4.appspot.com",
-            messagingSenderId: "628564908111",
-            appId: "1:628564908111:web:22c1878312bd428d1d323a",
-            measurementId: "G-6HEM43VFRN"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-messaging.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+     <script>
+     var firebaseConfig = {
+         apiKey: "AIzaSyDXnxOVFKo8tIHGgWxovoPD8VxjyZiUPTg",
+         authDomain: "calorietracker-587b4.firebaseapp.com",
+         databaseURL: "https://calorietracker-587b4.firebaseio.com",
+         projectId: "calorietracker-587b4",
+         storageBucket: "calorietracker-587b4.appspot.com",
+         messagingSenderId: "628564908111",
+         appId: "1:628564908111:web:22c1878312bd428d1d323a",
+         measurementId: "G-6HEM43VFRN"
+     };
+     // Initialize Firebase
+     firebase.initializeApp(firebaseConfig);
+     </script>
     <link rel="stylesheet" href="../css/profile.css">
+    <title>Profile</title>
 </head>
 
 <body>
     <h1>HELLO WORLD</h1>
     <button id="back">GO BACK</button>
+    <form id='login-form'>
+        <input placeholder="calorie-goal" type="text" id="calorie-goals">
+        <button id="set-goal" type="button">Set Goal</button>
+        <div class="popup">
+            <span class="popuptext" id="myPopup">Enter a value</span>
+        </div>
+    </form>
 
     <script src="../js/Profile.js"></script>
 </body>

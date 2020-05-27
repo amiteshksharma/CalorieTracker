@@ -219,7 +219,7 @@ h2 {
     margin: auto;
     padding-bottom: calc(1vmin);
     width: 76%;
-    margin-top: calc(1vmin);
+    margin-top: calc(2.5vmin);
 }
 
 div#list-display ul div, div#saved-item-list ul div {

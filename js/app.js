@@ -185,7 +185,7 @@ let num = date.toISOString().replace(/T.*/,'').split('-').reverse().join('-');
 let substringDate = num.substring(0, 2) + num.substring(3, 5);
 
 function writeUserData(user, calorie, array) {
-    firebase.database().ref('UserId/' + user + `/${substringDate}`).set({
+    firebase.database().ref('UserId/' + user + `/Dates/${substringDate}`).set({
         Calories: calorie,
         Items: array
     });
@@ -202,6 +202,7 @@ saveButton.addEventListener('click', () => {
         totalCalorieCount.textContent = "TOTAL: ";
         array = [];
         count = 0;
+        totalCalorie = 0;
     } else { }
 });
 
@@ -214,6 +215,7 @@ let analysis = document.getElementById('analysis');
 function changeTabs(listName, display) {
     document.getElementById(`${listName}`).addEventListener('click', () => {
         var user = firebase.auth().currentUser;
+        console.log(user);
         keys = document.getElementById('key-ul');
 
         if (user) {
@@ -239,7 +241,7 @@ function changeTabs(listName, display) {
 
 function loadSavedValues(user, listSaved, keys) {
     let index, calorie, arrayList;
-    let list = firebase.database().ref('UserId/' + user.uid).once('value').then(function (snapshot) {
+    let list = firebase.database().ref('UserId/' + user.uid + '/Dates').once('value').then(function (snapshot) {
         var keyDate = Object.keys(snapshot.val())
         keyDate.forEach(item => {
             keys.style.display = 'block';
