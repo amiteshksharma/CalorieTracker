@@ -31,16 +31,23 @@
 </head>
 
 <body>
-    <h1>HELLO WORLD</h1>
-    <button id="back">GO BACK</button>
-    <form id='login-form'>
-        <input placeholder="calorie-goal" type="text" id="calorie-goals">
+    <div class="header">
+        <div class="go-back">
+            <button id="back">GO BACK</button>
+        </div>
+        <h1>PROFILE</h1>
+    </div>
+
+    <form id='update-calorie'>
+        <input placeholder="Enter a Calorie goal for yourself" type="text" id="calorie-goals"></input>
         <button id="set-goal" type="button">Set Goal</button>
         <div class="popup">
             <span class="popuptext" id="myPopup">Enter a value</span>
         </div>
     </form>
 
+    <div id="successful" style="display: none;">Successfully Added</div>
+    
     <script src="../js/Profile.js"></script>
 </body>
 

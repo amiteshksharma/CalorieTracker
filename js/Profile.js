@@ -1,6 +1,7 @@
 let button = document.getElementById('back');
 let calorieGoal = document.getElementById('calorie-goals');
 let setGoal = document.getElementById('set-goal');
+let successful = document.getElementById('successful');
 
 button.addEventListener('click', () => {
     location.replace('../Index.html');
@@ -13,6 +14,9 @@ setGoal.addEventListener('click', () => {
             if(calorieGoal.value) {
                 writeUserData(user.uid, calorieGoal.value);
                 calorieGoal.value = '';
+
+                $('#successful').fadeIn(2000);
+                $('#successful').fadeOut(2000);
             } else {
                 var popup = document.getElementById("myPopup");
                 popup.classList.toggle("show");    

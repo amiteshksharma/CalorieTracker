@@ -1,3 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@700&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding-top: 0px;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: rgb(31, 127, 165);
+  height: calc(10vh);
+  font-size: calc(1.3em);
+}
+
+h1 {
+  padding-top: calc(2vh);
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.go-back {
+  width: 5%;
+}
+
+#back {
+  font-family: 'Lato', sans-serif;
+  float: left;
+  width: calc(100%);
+  height: calc(10vh);
+  background-color: rgb(31, 127, 165);
+  color: rgb(3, 3, 3);
+  font-size: calc(1.8vmin);
+  border: none;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+#back:hover {
+  background-color: rgb(26, 196, 226);
+}
+
 /* Popup container */
 .popup {
     position: relative;
@@ -32,7 +87,8 @@
   .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
+    animation: fadeIn 1s;
+
   }
   
   /* Add animation (fade in the popup) */
@@ -45,3 +101,50 @@
     from {opacity: 0;}
     to {opacity:1 ;}
   }
+
+#update-calorie {
+  width: 100%;
+  font-size: calc(4vmin);
+  background-color: white;
+  margin-top: calc(10vmin);
+  height: 100%;
+  display: flex;
+  justify-content: left;
+}
+
+#calorie-goals {
+  font-family: 'Cuprum', sans-serif;
+  width: calc(30%);
+  font-size: calc(1.8vmin);
+  text-indent: calc(3vmin);
+  cursor: text;
+  padding: calc(1.3vmin);
+  border: none;
+  float: left;
+  background: rgb(230, 228, 228);
+  color: black;
+}
+
+#set-goal {
+  font-family: 'Lato', sans-serif;
+  float: left;
+  width: calc(5%);
+  padding: calc(1.3vmin);
+  background: rgb(19, 96, 212);
+  color: white;
+  font-size: calc(1.8vmin);
+  border: none;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+#successful {
+  font-size: calc(3vmin);
+  margin-top: calc(2vmin);
+  padding: calc(.6vmin);
+  margin-left: calc(60vmin);
+  background-color: rgb(184, 185, 184);
+  width: 12%;
+  text-align: center;
+  border-radius: calc(2vmin);
+}

@@ -38,8 +38,7 @@ window.onload = function () {
             color: "#A3558B",
             lineThickness: 5,
             name: "Calorie Goal",
-            dataPoints: [{ x: formatToDate('2605'), y: 2502 },
-            ]
+            dataPoints: []
         }]
     };
 
