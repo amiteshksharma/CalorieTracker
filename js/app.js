@@ -175,6 +175,7 @@ function logout() {
         loginButton.style.display = 'block';
         signupButton.style.display = 'block';
         logoutButton.style.display = 'none';
+        profile.style.display = 'none';
     }).catch(function (error) {
         // An error happened.
     });
