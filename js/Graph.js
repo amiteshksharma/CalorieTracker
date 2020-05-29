@@ -108,8 +108,8 @@ function getGoalsDataLoop(user, graphObject, chart) {
 
         var d = new Date();
 
-
-        for(let i = 0; i < 30; i++) {
+        for(let i = 20; i < 40; i++) {
+            
             const value = {
                 x: new Date(2020, d.getMonth(), i),
                 y: parseInt(calorieGoal.CaloriesGoal)
